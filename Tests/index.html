@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MonstersWeb</title>
+
+    <!-- Lien vers Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS personnalisé -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="bg-dark text-white py-3">
+        <div class="container-fluid  d-flex align-items-center justify-content-between">
+            <!-- Logo à gauche -->
+            <img src="images/logo/logo1.png" alt="logo" class="img-fluid logo">
+
+            <!-- Titre centré -->
+            <h1 class="m-0 text-center flex-grow-1">MonstersWeb</h1>
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Barre latérale gauche -->
+            <nav class="col-2 col-md-1 bg-dark sidebar d-flex flex-column align-items-center py-4">
+                <ul class="nav flex-column text-white text-center">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link">Compte</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link">Instructions</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link">Avis</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link">Réseaux</a></li>
+                    <li class="nav-item mt-auto"><a href="#" class="nav-link">Conditions générales</a></li>
+                </ul>
+            </nav>
+
+            <!-- Contenu principal -->
+            <main class="col-10 col-md-10 bg-light-green d-flex flex-column justify-content-center align-items-center">
+
+                <div class="main-content text-center ">
+                    <h1>Bienvenue sur MonstersWeb</h1>
+                    <p>Connecte-toi pour jouer !</p>
+                </div>
+
+                <form class="text-center w-50">
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="email">
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" placeholder="mot de passe">
+                    </div>
+                    <div class="d-flex justify-content-center gap-3">
+                        <button type="button" class="btn btn-warning">Inscription</button>
+                        <button type="button" class="btn btn-danger">Connexion</button>
+                    </div>
+                </form>
+
+                <!-- <p class="mt-4 text-muted">Image d'herbe un peu floue avant le lancement du jeu</p> -->
+                <img src="images/fonds/fond-herbe.jpg" alt="fond-herbe" class="img-fluid" style="max-width: 5000px;">
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer class="row bg-dark text-white text-center py-3">
+            <div class="col">©copyright</div>
+            <div class="col">Filloy Luca SIO22</div>
+            <div class="col"><a href="#" class="text-white">Mentions légales</a></div>
+        </footer>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

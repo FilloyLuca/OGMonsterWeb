@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Fragments</title>
+    <link rel="icon" type="image/x-icon" href="/img/logo/logo1.png" />
+</head>
+<body>
+
+<!-- Fragment header -->
+<div th:fragment="header">
+    <header class="bg-dark text-white py-3 header">
+        <div class="container-fluid d-flex align-items-center justify-content-between">
+            <button id="toggle-sidebar" class="btn btn-light">
+                ☰
+            </button>
+            <a th:href="@{/}" class="btn btn-success btn-sm btn-home d-flex align-items-center justify-content-center ms-3"
+               style="width: 40px; height: 40px; border-radius: 50%; font-size: 1.2rem;">
+                🏠
+            </a>
+            <h1 class="m-0 text-center flex-grow-1">MonstersWeb</h1>
+            <img th:src="@{/img/logo/logo1.png}" alt="Logo" class="img-fluid" style="max-height:50px"/>
+        </div>
+    </header>
+</div>
+
+<!-- Fragment navbar -->
+<div th:fragment="navbar">
+    <nav id="sidebar" class="bg-dark sidebar d-flex flex-column align-items-center py-4">
+        <ul class="nav flex-column text-white text-center w-100">
+            <li class="nav-item mb-2"><a th:href="@{/monstersweb/compte}" class="nav-link text-white">Compte</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link text-white">Instructions</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link text-white">Avis</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link text-white">Réseaux</a></li>
+            <li class="nav-item mt-auto"><a href="#" class="nav-link text-white">Conditions générales</a></li>
+            <li class="nav-item mb-2"><a href="https://github.com/FilloyLuca/MonstersWeb" class="nav-link text-white" target="_blank">GitHub</a></li> <!-- le target =_blank permet d'ouvrir le lien dans un nouvel onglet -->
+        </ul>
+    </nav>
+</div>
+
+<!-- Contenu principal -->
+<div th:fragment="main">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Contenu principal -->
+            <main class="col d-flex flex-column justify-content-center align-items-center min-vh-100 bg-light p-4">
+<!--            <main class="col-8 col-lg-6 mx-auto p-4 mt-5 bg-white rounded shadow">-->
+                <div class="main-content text-center mb-4">
+                    <h1>Bienvenue sur MonstersWeb</h1>
+                    <p>Connecte-toi pour jouer !</p>
+                </div>
+
+                <div class="d-flex justify-content-center gap-3">
+                    <a th:href="@{/monstersweb/register}" class="btn btn-warning">Inscription</a>
+                    <a th:href="@{/monstersweb/login}" class="btn btn-danger">Se connecter</a>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+<!-- Fragment login -->
+<!--<div th:fragment="login">-->
+<!--    <div class="col-8 col-lg-6 mx-auto p-2 mt-3">-->
+<!--        <form th:action="@{/monstersweb/login}" method="post">-->
+<!--            <h1>Login</h1>-->
+<!--            &lt;!&ndash; Affiche le message d'erreur si l'attribut "error" est présent dans le modèle &ndash;&gt;-->
+<!--            <p th:if="${error}" class="alert alert-danger">Identifiants incorrects. Veuillez réessayer.</p>-->
+<!--            <div class="mb-3">-->
+<!--                <label for="username">Email</label>-->
+<!--                <input required class="form-control" id="username" name="username" type="text">-->
+<!--            </div>-->
+<!--            <div class="mb-3">-->
+<!--                <label for="password">Mdp</label>-->
+<!--                <input required class="form-control" id="password" name="password" type="password">-->
+<!--            </div>-->
+<!--            <button class="btn btn-primary">Envoyer</button>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--</div>-->
+
+<div th:fragment="login-wrapper" class="login-wrapper">
+    <div class="col-8 col-lg-6 mx-auto p-4 mt-5 bg-white rounded shadow">
+        <form th:action="@{/monstersweb/login}" method="post">
+            <h1 class="text-center mb-4">Connexion</h1>
+
+            <!-- Message d'erreur -->
+            <div th:if="${param.error}" class="alert alert-danger">
+                Identifiants incorrects. Veuillez réessayer.
+            </div>
+
+            <!-- Champ Email/Username -->
+            <div class="mb-3">
+                <label for="username" class="form-label">Email</label>
+                <input required class="form-control" id="username" name="username" type="email" placeholder="">
+            </div>
+
+            <!-- Champ Mot de passe -->
+            <div class="mb-3">
+                <label for="password" class="form-label">Mot de passe</label>
+                <input required class="form-control" id="password" name="password" type="password" placeholder="">
+            </div>
+
+            <!-- Boutons -->
+            <div class="d-flex justify-content-center gap-3">
+                <a th:href="@{/monstersweb/register}" class="btn btn-warning">Inscription</a>
+                <button type="submit" class="btn btn-danger">Se connecter</button>
+            </div>
+
+            <!-- Lien retour -->
+            <div class="text-center mt-3">
+                <a th:href="@{/}" class="text-muted">← Retour à l'accueil</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Affichage de l'accueil Client -->
+<div th:fragment="AccueilCLient" >
+    <img th:src="@{/img/logo/LogoAffichage}" alt="Logo AffichageClient" class="img-fluid" style="max-height:50px"/>
+    <!--TODO Afficher le bouton play pour lancer le jeu -->
+</div>
+
+<div th:fragment="InfoProfil" >
+    <div class="trainer-card ">
+<!--        <div class="col-8 col-lg-6 mx-auto p-4 mt-5 bg-white rounded shadow">-->
+        <div class="header-trainer-card">
+            <span class="icon">⚪</span>
+            <span class="title">CARTE DRESSEUR</span>
+            <span class="star">★</span>
+        </div>
+
+        <div class="content">
+            <div class="info">
+<!--                <p><span>Nº ID</span> ${Client.nom} </p>-->
+                <p><span>Nº ID</span> <span th:text="${Client.id}"></span></p>
+                <p><span>NOM</span> </p>
+                <p><span>PRENOM</span>  </p>
+                <p><span>EMAIL</span> </p>
+                <p><span>ROLE</span> </p>
+
+<!--                <p class="small"><span>DURÉE DE JEU</span> 145:43</p>-->
+<!--                <p class="small"><span>DÉBUT DE L’AVENTURE</span> 08 juil. 2016</p>-->
+                <p class="small"><span>DATE</span>LocalDate</p>
+            </div>
+
+            <div class="sprite-box">
+                <img src="trainer.png" alt="Trainer Sprite">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer th:fragment="footer" class="container-fluid bg-dark text-white text-center py-3 mt-4 footer">
+    <div class="row">
+        <div class="col">©copyright</div>
+        <div class="col">Filloy Luca SIO22</div>
+        <div class="col"><a href="#" class="text-white">Mentions légales</a></div>
+    </div>
+</footer>
+
+<!-- Fragment scripts -->
+<th:block th:fragment="scripts">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const toggleButton = document.getElementById('toggle-sidebar');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+
+        // Fonction pour ouvrir/fermer la sidebar
+        function toggleSidebar() {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        // Ouvrir/fermer avec le bouton
+        if (toggleButton && sidebar && overlay) {
+            toggleButton.addEventListener('click', toggleSidebar);
+            overlay.addEventListener('click', toggleSidebar);
+        }
+    </script>
+</th:block>
+
+</body>
+</html>

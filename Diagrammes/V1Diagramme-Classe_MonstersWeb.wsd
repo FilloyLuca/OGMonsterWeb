@@ -1,0 +1,158 @@
+@startuml MonstersWeb
+left to right direction
+'==================== Classes ===================='
+
+class Element {
+    -Int id
+    -String nom
+    --
+    +efficaceContre(Element): Double
+}
+
+class EspeceMonstre {
+    -int id
+    -String nom
+    -String type
+    -int baseAttaque
+    -int baseDefense
+    -int baseVitesse
+    -int baseAttaqueSpe
+    -int baseDefenseSpe
+    -int basePv
+    -double modAttaque
+    -double modDefense
+    -double modVitesse
+    -double modAttaqueSpe
+    -double modDefenseSpe
+    -double modPv
+    -String description
+    -String particularites
+    -String caractères
+    -MutableList~Element~ elements
+    --
+    +afficheArt(deFace: Boolean = true): String
+}
+
+class IndividuMonstre {
+    -int id
+    -String nom
+    -EspeceMonstre espece
+    -Entraineur? entraineur
+    -double expInit
+    -int niveau
+    -int attaque
+    -int defense
+    -int vitesse
+    -int attaqueSpe
+    -int defenseSpe
+    -int pvMax
+    -double potentiel
+    -double exp
+    -int pv
+    -MutableList~Technique~ techniques
+    --
+    +palierExp(niveau: Int): Double
+    +levelUp()
+    +attaquer(cible: IndividuMonstre)
+    +renommer(monstre: IndividuMonstre)
+    +afficherDetail(monstre: IndividuMonstre)
+}
+
+class Technique {
+    -int id
+    -String nom
+    -double precision
+    -double multiplicateurDePuissance
+    -boolean estBuff
+    -boolean estDebuff
+    -boolean estSpecial
+    -boolean faireDegat
+    -Element elementTechnique
+    --
+    +calculerPrecision(): Boolean
+    +calculBonusStab(individu: IndividuMonstre): Double
+    +effet(attaquant: IndividuMonstre, defenseur: IndividuMonstre): Double
+}
+
+class CombatMonstre {
+    -IndividuMonstre monstreJoueur
+    -IndividuMonstre monstreSauvage
+    -int round
+    --
+    +gameOver(): Boolean
+    +joueurGagne(): Boolean
+    +actionAdverse()
+    +actionJoueur(): Boolean
+    +afficheCombat()
+    +jouer()
+    +lanceCombat()
+}
+
+class Entraineur {
+    -String nom
+    -MutableList~IndividuMonstre~ equipeMonstre
+    -MutableList~Item~ sacAItems
+}
+
+class Item {
+    -String nom
+}
+
+interface Utilisable {
+    +utiliser(monstre: IndividuMonstre): Boolean
+}
+
+class Zone {
+    -int id
+    -String nom
+    -int expZone
+    -MutableList~EspeceMonstre~ especeMonstres
+    -Zone? zoneSuivante
+    -Zone? zonePrecedente
+    --
+    +genereMonstre(): IndividuMonstre
+    +rencontreMonstre()
+}
+
+class Visiteur {
+    -int id
+}
+
+class Utilisateur {
+    -int id
+    -String mdp
+    -String email
+    --
+    +lancerJeu(): Entraineur
+}
+
+class Avis {
+    -int id
+    -String nom
+    -Date LocalDate
+}
+
+'==================== Relations ===================='
+
+EspeceMonstre "1" --> "*" Element : elements
+IndividuMonstre "1" --> "1" EspeceMonstre : espece
+IndividuMonstre "1" --> "0..4" Technique : techniques
+Technique "1" --> "1" Element : elementTechnique
+CombatMonstre "1" --> "1" IndividuMonstre : monstreJoueur
+CombatMonstre "1" --> "1" IndividuMonstre : monstreSauvage
+IndividuMonstre "*" --> "1" Entraineur : entraineur
+Entraineur "1" --> "*" IndividuMonstre : equipeMonstre
+Entraineur "1" --> "*" Item : sacAItems
+Item ..|> Utilisable
+Zone "1" --> "*" EspeceMonstre : especeMonstres
+Zone "1" --> "0..1" Zone : zoneSuivante
+Zone "1" --> "0..1" Zone : zonePrecedente
+Utilisateur "1" --> "1" Avis
+
+' Utilisateur devient Entraineur
+Utilisateur "1" --> "0..1" Entraineur : après lancement jeu
+
+' Visiteur devient Utilisateur
+Visiteur"1" --> "0..1" Utilisateur : après inscription
+
+@enduml

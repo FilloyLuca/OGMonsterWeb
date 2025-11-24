@@ -1,0 +1,40 @@
+body {
+    background-color: #d6ead6; /* fond vert clair */
+}
+.sidebar {
+    background-color: #000000;
+    min-height: 100vh; /* prend toute la hauteur de la page */
+    border-right: 1px solid #ccc;
+}
+.sidebar .nav-link {
+    color: #f8f5f5;
+    margin: 10px 0;
+}
+.sidebar .nav-link:hover {
+    background-color: #8a8c8d;
+    border-radius: 5px;
+}
+.main-content {
+    color: #000000;
+    padding: 30px;
+    text-align: center;
+}
+.btn-connexion {
+    background: linear-gradient(to bottom, #ff9999, #ff6666);
+    color: white;
+    border: none;
+}
+.btn-connexion:hover {
+    background: linear-gradient(to bottom, #ff6666, #ff3333);
+}
+.logo {
+  max-width: 100px;
+  margin-left: 50;
+  padding-left: 0;
+}
+footer {
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+    text-align: center;
+}

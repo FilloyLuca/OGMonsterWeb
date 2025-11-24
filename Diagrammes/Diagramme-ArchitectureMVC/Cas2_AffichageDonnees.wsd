@@ -1,0 +1,30 @@
+@startuml Cas2_AffichageDonnees
+skinparam backgroundColor white
+skinparam rectangle {
+  BorderColor black
+  FontSize 14
+}
+
+title Cas 2 : Affichage de données (MonstersWeb)
+
+'=== Acteurs ===
+rectangle "💻 Client (Navigateur Web)" as Client #lightblue {
+}
+
+rectangle "☕ Serveur Web (Application MonstersWeb)" as Serveur #white {
+    rectangle "Contrôleur\n(EspeceMonstreController)" as C #lightcoral
+    rectangle "Vue\n(listeMonstres.html)" as V #lightpink
+    rectangle "Modèle\n(EspeceMonstre, Element)" as M #lightyellow
+}
+
+rectangle "🐬 Base de données\n(MariaDB - JDBC)" as BDD #lightgreen
+
+'=== Flux ===
+Client -right-> C : ① GET /monstres
+C -down-> M : ② Récupération des données
+M -down-> BDD : ③ SELECT * FROM EspeceMonstre
+BDD -up-> M : ④ Résultats (liste)
+M -up-> V : ⑤ Données pour affichage
+V -left-> Client : ⑥ Réponse HTML (liste des monstres)
+
+@enduml

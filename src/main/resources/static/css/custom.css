@@ -1,0 +1,120 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #212529;
+    z-index: 1030;
+}
+
+main {
+    margin-top: 0; /* Retiré le margin-top */
+    padding-top: 90px; /* Ajout du padding pour compenser le header */
+    padding-bottom: 40px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    overflow: auto;
+    min-height: calc(100vh - 60px);
+}
+
+.footer {
+    background-color: #212529;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    margin: 0;
+    padding-top: 70px; /* Compense le header fixe */
+}
+
+.page-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.login-wrapper {
+    width: 100%;
+}
+
+/* Sidebar cachée par défaut */
+#sidebar {
+    position: fixed;
+    top: 60px;
+    left: -220px;
+    width: 200px;
+    height: calc(100% - 60px);
+    background-color: #212529;
+    transition: left 0.3s ease;
+    z-index: 1020;
+    overflow-y: auto;
+}
+
+/* Sidebar visible quand active */
+#sidebar.active {
+    left: 0;
+}
+
+/* Overlay pour fermer la sidebar en cliquant à l'extérieur */
+.sidebar-overlay {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 60px);
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 1010;
+}
+
+.sidebar-overlay.active {
+    display: block;
+}
+
+/* Ajustement pour le contenu centré de la page d'accueil */
+main.col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ajustement pour les containers */
+.container, .container-fluid {
+    margin-top: 0;
+}
+
+.btn-home:hover {
+    background-color:#088001; /* couleur légèrement plus foncée au survol */
+    transform: scale(1.1);
+    transition: all 0.2s ease-in-out;
+}
+
+.trainer-card {
+    width: 420px;
+    background: linear-gradient(#78a8ff, #a8c6ff);
+    border: 4px solid #e0d27d;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 4px 0 #8a7a36;
+    margin: 40px auto;
+    position: relative;
+    color: #0f2a4a;
+}

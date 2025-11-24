@@ -1,0 +1,30 @@
+@startuml Cas3_EnvoiFormulaire
+skinparam backgroundColor white
+skinparam rectangle {
+  BorderColor black
+  FontSize 14
+}
+
+title Cas 3 : Envoi d’un formulaire (MonstersWeb)
+
+'=== Acteurs ===
+rectangle "💻 Client (Navigateur Web)" as Client #lightblue {
+}
+
+rectangle "☕ Serveur Web (Application MonstersWeb)" as Serveur #white {
+    rectangle "Contrôleur\n(CombatController)" as C #lightcoral
+    rectangle "Vue\n(confirmationCombat.html)" as V #lightpink
+    rectangle "Modèle\n(CombatMonstre, IndividuMonstre, Entraineur)" as M #lightyellow
+}
+
+rectangle "🐬 Base de données\n(MariaDB - JDBC)" as BDD #lightgreen
+
+'=== Flux ===
+Client -right-> C : ① POST /combat/save\n(Formulaire)
+C -down-> M : ② Validation et sauvegarde
+M -down-> BDD : ③ INSERT INTO combats (...)
+BDD -up-> M : ④ Confirmation d’écriture
+M -up-> V : ⑤ Données de confirmation
+V -left-> Client : ⑥ Message de succès
+
+@enduml

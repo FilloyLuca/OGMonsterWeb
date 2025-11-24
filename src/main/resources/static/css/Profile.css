@@ -1,0 +1,76 @@
+body {
+    background: #d0e7ff;
+    font-family: "Verdana", sans-serif;
+}
+
+.header-trainer-card {
+    width: 420px;
+    background: linear-gradient(#78a8ff, #a8c6ff);
+    border: 4px solid #e0d27d;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 4px 0 #8a7a36;
+    margin: 40px auto;
+    position: relative;
+    color: #0f2a4a;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #e0d27d;
+    padding: 4px 10px;
+    border-radius: 8px;
+    box-shadow: inset 0 -4px 0 #b4a657;
+    font-weight: bold;
+    color: #1a1a1a;
+}
+
+.header .icon {
+    font-size: 14px;
+}
+
+.header .star {
+    color: gold;
+    font-size: 20px;
+}
+
+.content {
+    display: flex;
+    margin-top: 10px;
+}
+
+.info {
+    width: 60%;
+}
+
+.info p {
+    margin: 4px 0;
+    font-size: 15px;
+}
+
+.info span {
+    font-weight: bold;
+    margin-right: 6px;
+}
+
+.small {
+    margin-top: 12px;
+    font-size: 14px !important;
+}
+
+.sprite-box {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sprite-box img {
+    width: 120px;
+    image-rendering: pixelated;
+    border: 3px solid #3a4d6b;
+    background: #8fb2ff;
+    border-radius: 8px;
+}

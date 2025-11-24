@@ -1,0 +1,29 @@
+@startuml Cas1_PageStatique
+left to right direction
+skinparam backgroundColor white
+skinparam rectangle {
+  BorderColor black
+  FontSize 14
+}
+
+title Cas 1 : Page statique (MonstersWeb - Kotlin)
+
+'=== Acteurs ===
+rectangle "💻 Client\n(Navigateur Web)" as Client #lightblue
+rectangle "☕ Serveur Web\n(Application MonstersWeb - Kotlin / Gradle)" as Serveur #white {
+    rectangle "Contrôleur\n(HomeController)" as C #lightcoral
+    rectangle "Vue\n(home.html)" as V #lightpink
+    rectangle "Modèle\n(non utilisé)" as M #lightgray
+}
+rectangle "🐬 Base de données\n(MariaDB - JDBC)" as BDD #lightgray
+
+'=== Flux ===
+Client -right-> C : ① Requête HTTP GET /accueil
+C -down-> V : ② Appel de la vue statique
+V -up-> C : ③ Génère la page HTML
+C -up-> Client : ④ Réponse HTML (retour)
+
+'=== Option : flèche de retour en diagonale pour ne pas fusionner ===
+'C ..> Client : Réponse HTML alternative
+
+@enduml

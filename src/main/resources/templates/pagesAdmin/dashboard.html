@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="/img/logo/logo1.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/custom.css}"/>
+</head>
+<body>
+
+<div th:replace="fragments :: header"></div>
+
+<!-- Inclusion de la navbar -->
+<div th:replace="~{fragments :: navbar}"></div>
+
+<!-- Overlay pour fermer la sidebar -->
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<div class="container my-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>Dashboard Administrateur</h1>
+        <a th:href="@{/monstersweb/logout}" class="btn btn-danger">Se déconnecter</a>
+    </div>
+
+    <p>Bienvenue sur le tableau de bord administrateur.</p>
+
+    <div class="admin-menu">
+        <h2>Menu</h2>
+        <ul>
+            <li><a th:href="@{/monstersweb/admin/indexEspeceMonstre}">Gestion des espèces de monstres</a></li>
+            <li><a th:href="@{/monstersweb/admin/indexMonsterKube}">Gestion des MonsterKube</a></li>
+            <li><a th:href="@{/monstersweb/admin/indexZone}">Gestion des Zones</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<div th:replace="fragments :: footer"></div>
+
+<!-- Script pour la sidebar -->
+<th:block th:replace="~{fragments :: scripts}"></th:block>
+
+</body>
+</html>
