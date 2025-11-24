@@ -120,6 +120,11 @@
 <div th:fragment="AccueilCLient" >
     <img th:src="@{/img/logo/LogoAffichage}" alt="Logo AffichageClient" class="img-fluid" style="max-height:50px"/>
     <!--TODO Afficher le bouton play pour lancer le jeu -->
+    <div class="container my-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <img th:src="@{/img/logo/LogoAffichage}" alt="Logo AffichageClient" class="img-fluid" style="max-height:50px"/>
+            <a th:href="@{/monstersweb/logout}" class="btn btn-danger">Se déconnecter</a>
+        </div>
 </div>
 
 <div th:fragment="InfoProfil" >
