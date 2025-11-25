@@ -117,7 +117,7 @@
 </div>
 
 <!-- Affichage de l'accueil Client -->
-<div th:fragment="AccueilCLient" >
+<div th:fragment="AccueilClient" >
     <img th:src="@{/img/logo/LogoAffichage}" alt="Logo AffichageClient" class="img-fluid" style="max-height:50px"/>
     <!--TODO Afficher le bouton play pour lancer le jeu -->
     <div class="container my-4">
@@ -125,37 +125,38 @@
             <img th:src="@{/img/logo/LogoAffichage}" alt="Logo AffichageClient" class="img-fluid" style="max-height:50px"/>
             <a th:href="@{/monstersweb/logout}" class="btn btn-danger">Se déconnecter</a>
         </div>
-</div>
-
-<div th:fragment="InfoProfil" >
-    <div class="trainer-card ">
-<!--        <div class="col-8 col-lg-6 mx-auto p-4 mt-5 bg-white rounded shadow">-->
-        <div class="header-trainer-card">
-            <span class="icon">⚪</span>
-            <span class="title">CARTE DRESSEUR</span>
-            <span class="star">★</span>
-        </div>
-
-        <div class="content">
-            <div class="info">
-<!--                <p><span>Nº ID</span> ${Client.nom} </p>-->
-                <p><span>Nº ID</span> <span th:text="${Client.id}"></span></p>
-                <p><span>NOM</span> </p>
-                <p><span>PRENOM</span>  </p>
-                <p><span>EMAIL</span> </p>
-                <p><span>ROLE</span> </p>
-
-<!--                <p class="small"><span>DURÉE DE JEU</span> 145:43</p>-->
-<!--                <p class="small"><span>DÉBUT DE L’AVENTURE</span> 08 juil. 2016</p>-->
-                <p class="small"><span>DATE</span>LocalDate</p>
-            </div>
-
-            <div class="sprite-box">
-                <img src="trainer.png" alt="Trainer Sprite">
-            </div>
-        </div>
     </div>
 </div>
+
+<!--<div th:fragment="InfoProfil" >-->
+<!--    <div class="trainer-card ">-->
+<!--&lt;!&ndash;        <div class="col-8 col-lg-6 mx-auto p-4 mt-5 bg-white rounded shadow">&ndash;&gt;-->
+<!--        <div class="header-trainer-card">-->
+<!--            <span class="icon">⚪</span>-->
+<!--            <span class="title">CARTE DRESSEUR</span>-->
+<!--            <span class="star">★</span>-->
+<!--        </div>-->
+
+<!--        <div class="content">-->
+<!--            <div class="info">-->
+<!--&lt;!&ndash;                <p><span>Nº ID</span> ${Client.nom} </p>&ndash;&gt;-->
+<!--                <p><span>Nº ID</span> <span th:text="${Client?.id}"></span></p>-->
+<!--                <p><span>NOM</span> </p>-->
+<!--                <p><span>PRENOM</span>  </p>-->
+<!--                <p><span>EMAIL</span> </p>-->
+<!--                <p><span>ROLE</span> </p>-->
+
+<!--&lt;!&ndash;                <p class="small"><span>DURÉE DE JEU</span> 145:43</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                <p class="small"><span>DÉBUT DE L’AVENTURE</span> 08 juil. 2016</p>&ndash;&gt;-->
+<!--                <p class="small"><span>DATE</span>LocalDate</p>-->
+<!--            </div>-->
+
+<!--            <div class="sprite-box">-->
+<!--                <img src="trainer.png" alt="Trainer Sprite">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <!-- Footer -->
 <footer th:fragment="footer" class="container-fluid bg-dark text-white text-center py-3 mt-4 footer">
