@@ -3,12 +3,15 @@ import ch.qos.logback.core.net.server.Client
 import org.ldv.monstersweb.controller.clientcontrollers.ClientController
 import org.ldv.monstersweb.model.dao.UtilisateurDAO
 import org.ldv.monstersweb.model.entity.Administrateur
+import org.ldv.monstersweb.model.entity.Utilisateur
 import org.ldv.monstersweb.service.DataInitializer
 import org.springframework.security.core.Authentication
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.RequestParam
+import java.security.Principal
 
 
 @Controller
@@ -79,6 +82,13 @@ class MainController(private val dataInitializer: DataInitializer, private val u
 
         return "pagesClient/compteClient"
     }
+
+//    @ModelAttribute("client")
+//    fun currentClient(principal: Principal?): Utilisateur? {
+//        if (principal == null) return null
+//        // si findByEmail retourne Optional<Utilisateur>
+//        return utilisateurDAO.findByEmail(principal.name)
+//    }
 
 }
 

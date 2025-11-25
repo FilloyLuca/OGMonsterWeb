@@ -12,7 +12,7 @@
 <div th:fragment="header">
     <header class="bg-dark text-white py-3 header">
         <div class="container-fluid d-flex align-items-center justify-content-between">
-            <button id="toggle-sidebar" class="btn btn-light">
+            <button id="toggle-sidebar" class="btn btn-success">
                 ☰
             </button>
             <a th:href="@{/}" class="btn btn-success btn-sm btn-home d-flex align-items-center justify-content-center ms-3"
@@ -128,8 +128,8 @@
     </div>
 </div>
 
-<!-- Affichage du profil -->
-<div th:fragment="InfoProfil">
+<!-- Affichage du profil Client -->
+<div th:fragment="InfoProfilClient">
 
     <!-- Bouton logout à droite -->
     <div class="container my-4">
@@ -140,7 +140,7 @@
         </div>
     </div>
 
-    <!-- Le reste de ta carte -->
+    <!-- Le reste de la carte -->
     <div class="trainer-card">
         <div class="header-trainer-card">
             <span class="icon">⚪</span>
@@ -150,12 +150,19 @@
 
         <div class="content">
             <div class="info">
-                <p><span>Nº ID</span> <span th:text="${Client.id}"></span></p>
-                <p><span>NOM</span> <span th:text="${authentication.nom}"></span></p>
+<!--                <p><span>Nº ID</span> <span th:text="${client?.id}"></span></p>-->
+<!--                <p><span>NOM</span> <span th:text="${client.nom}"></span></p>-->
+<!--                <p><span>PRENOM</span> <span th:text="${client.prenom}"></span></p>-->
+<!--                <p><span>EMAIL</span> <span th:text="${client.email}"></span></p>-->
+<!--                <p><span>ROLE</span> <span th:text="${client.role}"></span></p>-->
+<!--                <p class="small"><span>DATE</span> <span th:text="${#dates.format(client.createdAt, 'dd/MM/yyyy')}"></span></p>-->
+                <!--TODO Faire afficher les infos du client -->
+                <p><span>Nº ID</span></p>
+                <p><span>NOM</span></p>
                 <p><span>PRENOM</span></p>
                 <p><span>EMAIL</span></p>
                 <p><span>ROLE</span></p>
-                <p class="small"><span>DATE</span>LocalDate</p>
+                <p class="small"><span>DATE</span></p>
             </div>
 
             <div class="sprite-box">
@@ -166,8 +173,50 @@
 
 </div>
 
+<!-- Affichage du profil Admin -->
+<div th:fragment="InfoProfilAdmin">
 
+    <!-- Bouton logout à droite -->
+    <div class="container my-4">
+        <div class="d-flex justify-content-end mb-3">
+            <a th:href="@{/monstersweb/logout}" class="btn btn-danger">
+                Se déconnecter
+            </a>
+        </div>
+    </div>
 
+    <!-- Le reste de la carte -->
+    <div class="trainer-card">
+        <div class="header-trainer-card">
+            <span class="icon">⚪</span>
+            <span class="title">CARTE DRESSEUR</span>
+            <span class="star">★</span>
+        </div>
+
+        <div class="content">
+            <div class="info">
+<!--                <p><span>Nº ID</span> <span th:text="${admin?.id}"></span></p>-->
+<!--                <p><span>NOM</span> <span th:text="${admin.nom}"></span></p>-->
+<!--                <p><span>PRENOM</span> <span th:text="${admin.prenom}"></span></p>-->
+<!--                <p><span>EMAIL</span> <span th:text="${admin.email}"></span></p>-->
+<!--                <p><span>ROLE</span> <span th:text="${admin.role}"></span></p>-->
+<!--                <p class="small"><span>DATE</span> <span th:text="${#dates.format(admin.createdAt, 'dd/MM/yyyy')}"></span></p>-->
+                <!--TODO Faire afficher les infos de l'admin -->
+                <p><span>Nº ID</span></p>
+                <p><span>NOM</span></p>
+                <p><span>PRENOM</span></p>
+                <p><span>EMAIL</span></p>
+                <p><span>ROLE</span></p>
+                <p class="small"><span>DATE</span></p>
+            </div>
+
+            <div class="sprite-box">
+                <img src="/img/trainer.png" alt="Trainer Sprite">
+            </div>
+        </div>
+    </div>
+
+</div>
 
 <!-- Footer -->
 <footer th:fragment="footer" class="container-fluid bg-dark text-white text-center py-3 mt-4 footer">
