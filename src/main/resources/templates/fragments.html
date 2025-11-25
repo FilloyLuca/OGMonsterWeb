@@ -26,17 +26,18 @@
 </div>
 
 <!-- Arriere plan -->
+<!--TODO arriere plan à faire (voir si ça rend bien) -->
 
 <!-- Fragment navbar -->
 <div th:fragment="navbar">
     <nav id="sidebar" class="bg-dark sidebar d-flex flex-column align-items-center py-4">
         <ul class="nav flex-column text-white text-center w-100">
             <li class="nav-item mb-2"><a th:href="@{/monstersweb/compte}" class="nav-link text-white">Compte</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link text-white">Instructions</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link text-white">Avis</a></li>
+            <li class="nav-item mb-2"><a th:href="@{/monstersweb/instruction}" class="nav-link text-white">Instruction(s)</a></li>
+            <li class="nav-item mb-2"><a th:href="@{/monstersweb/avis}" class="nav-link text-white">Avis</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link text-white">Réseaux</a></li>
             <li class="nav-item mt-auto"><a href="#" class="nav-link text-white">Conditions générales</a></li>
-            <li class="nav-item mb-2"><a href="https://github.com/FilloyLuca/MonstersWeb" class="nav-link text-white" target="_blank">GitHub</a></li> <!-- le target =_blank permet d'ouvrir le lien dans un nouvel onglet -->
+            <li class="nav-item mb-2"><a href="https://github.com/FilloyLuca/OGMonsterWeb" class="nav-link text-white" target="_blank">GitHub</a></li> <!-- le target =_blank permet d'ouvrir le lien dans un nouvel onglet -->
         </ul>
     </nav>
 </div>
@@ -146,7 +147,8 @@
         <div class="header-trainer-card">
             <span class="icon">⚪</span>
             <span class="title">CARTE DRESSEUR</span>
-            <span class="star">★</span>
+<!--            <span class="star">★</span>-->
+            <span class="star">⭐</span>
         </div>
 
         <div class="content">
@@ -191,7 +193,8 @@
         <div class="header-trainer-card">
             <span class="icon">⚪</span>
             <span class="title">CARTE DRESSEUR</span>
-            <span class="star">★</span>
+<!--            <span class="star">★</span>-->
+            <span class="star">⭐</span>
         </div>
 
         <div class="content">
@@ -220,7 +223,7 @@
 </div>
 
 <!--Lancement du jeu-->
-<div th:fragment="jeu" class="login-wrapper">
+<div th:fragment="jeu" class="jeu-wrapper">
     <div class="col-8 col-lg-6 mx-auto p-4 mt-5 bg-white rounded shadow">
             <h1 class="text-center mb-4">Le Jeu 🎮</h1>
             <p class="text-center">L'aventure n'est qu'à un pas ! 👣</p>
@@ -236,6 +239,39 @@
             </div>
     </div>
 </div>
+
+<!-- Instruction -->
+<div th:fragment="instruction" class="instruction-wrapper">
+
+    <h1 class="text-center mb-4">MonstersWeb c'est quoi ❓</h1>
+    <div class="d-flex justify-content-end mb-3">
+        <div class="col-8 col-lg-6 mx-auto p-4 mt-5 bg-white rounded shadow">
+            <h1 class="text-center mb-4">Contexte 📝</h1>
+            <p class="text-center">
+                Le projet consiste à développer une version web de l’application Kotlin Monsters, initialement réalisée sous forme d’un programme en ligne de commande. L’objectif est de transposer le jeu dans une interface graphique accessible via un navigateur web, afin d’améliorer l’expérience utilisateur et de rendre le jeu plus attractif et interactif. Cette nouvelle version permettra : <br>
+                    • D’afficher le jeu à l’aide d’une interface visuelle moderne, remplaçant les interactions textuelles du terminal.<br>
+                    • D’intégrer des éléments dynamiques (animations, boutons, menus, effets visuels, etc.) pour rendre la navigation plus fluide.<br>
+                    • D’offrir une meilleure accessibilité, le jeu pouvant être lancé depuis n’importe quel appareil connecté à Internet.<br>
+                    • D’éventuellement étendre les fonctionnalités du jeu original, comme la sauvegarde des parties, la gestion de profils utilisateurs, ou encore un classement en ligne.<br>
+                Le projet s’inscrit dans une logique d’évolution technologique du jeu existant, en exploitant des technologies web modernes (telles que HTML, CSS, JavaScript, et un framework adapté comme React, Vue ou Kotlin/JS) tout en conservant les mécaniques de jeu déjà développées en Kotlin.
+            </p>
+        </div>
+        <div class="col-8 col-lg-6 mx-auto p-4 mt-5 bg-white rounded shadow">
+            <h1 class="text-center mb-4">Objectifs 🎯</h1>
+            <p class="text-center">
+                L’objectif principal du projet est de concevoir et développer une application web interactive permettant de jouer à un jeu inspiré des mécaniques fondamentales de la série Pokémon. Plus précisément, l’application devra :
+                    • Reproduire les principes de base du gameplay Pokémon, tels que la capture, le combat et la gestion de créatures (ici, les monsters).<br>
+                    • Offrir une interface graphique intuitive et agréable, permettant au joueur de naviguer facilement entre les différentes sections du jeu (écran d’accueil, inventaire, zones de combat, etc.).<br>
+                    • Transposer les fonctionnalités existantes de la version Kotlin d’origine vers un environnement web, tout en optimisant l’ergonomie et la fluidité des interactions.<br>
+                    • Assurer la compatibilité multiplateforme, afin que le jeu puisse être accessible depuis différents appareils (ordinateur, tablette, smartphone) via un simple navigateur.<br>
+                    • Poser les bases d’une évolution future du jeu, en prévoyant la possibilité d’ajouter de nouvelles fonctionnalités comme la personnalisation du joueur, le multijoueur en ligne, ou la sauvegarde des progressions.<br>
+                L’ensemble de ces objectifs vise à moderniser et valoriser le projet Kotlin Monsters, en le rendant plus immersif, plus accessible et plus proche des standards des jeux web actuels.
+            </p>
+        </div>
+    </div>
+</div>
+
+
 
 <!-- Fragment scripts -->
 <th:block th:fragment="scripts">

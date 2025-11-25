@@ -90,5 +90,15 @@ class MainController(private val dataInitializer: DataInitializer, private val u
 //        return utilisateurDAO.findByEmail(principal.name)
 //    }
 
+    @GetMapping("/monstersweb/avis")
+    fun avis(): String {
+        return "/pagesClient/avis"
+    }
+
+    @GetMapping("/monstersweb/instruction")
+    fun instruction(): String {
+        return "/pagesClient/instruction"
+    }
+
 }
 
