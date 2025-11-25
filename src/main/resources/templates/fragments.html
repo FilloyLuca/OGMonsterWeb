@@ -217,6 +217,26 @@
 
 </div>
 
+<!--Lancement du jeu-->
+<div th:fragment="jeu" class="login-wrapper">
+    <div class="col-8 col-lg-6 mx-auto p-4 mt-5 bg-white rounded shadow">
+
+            <h1 class="text-center mb-4">Le Jeu 🎮</h1>
+            <p class="text-center">L'aventure n'est qu'à un pas ! 👣</p>
+
+            <!-- Bouton -->
+            <div class="d-flex justify-content-center gap-3">
+                <button type="submit" class="btn btn-danger">Jouer</button>
+            </div>
+
+            <!-- Lien retour -->
+            <div class="text-center mt-3">
+                <a th:href="@{/}" class="text-muted">← Retour à l'accueil</a>
+            </div>
+
+    </div>
+</div>
+
 <!-- Footer -->
 <footer th:fragment="footer" class="container-fluid bg-dark text-white text-center py-3 mt-4 footer">
     <div class="row">
