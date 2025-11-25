@@ -47,7 +47,7 @@ class MainController(private val dataInitializer: DataInitializer, private val u
      * Page de profil après connexion
      */
     @GetMapping("/monstersweb/profil")
-    fun profile(authentication: Authentication): String {
+    fun profil(authentication: Authentication): String {
         // Récupération des rôles (authorities) de l'utilisateur connecté
         val roles = authentication.authorities.map { it.authority }
 
@@ -58,21 +58,6 @@ class MainController(private val dataInitializer: DataInitializer, private val u
 
         // Sinon → affiche la page profile client
         return "pagesClient/AccueilClient"
-    }
-
-
-    @GetMapping("/monstersweb/compte")
-    fun compte(authentication: Authentication): String {
-        // Récupération des rôles (authorities) de l'utilisateur connecté
-        val roles = authentication.authorities.map { it.authority }
-
-        // Si l'utilisateur est admin → redirection vers le dashboard
-        if ("ROLE_ADMIN" in roles) {
-            return "redirect:/monstersweb/admin/compteAdmin"
-        }
-
-        // Sinon → affiche la page profile client
-        return "pagesClient/compteClient"
     }
 
     @GetMapping("/monstersweb/compte")
