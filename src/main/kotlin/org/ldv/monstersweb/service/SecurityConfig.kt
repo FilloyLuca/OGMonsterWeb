@@ -113,7 +113,7 @@ class SecurityConfig {
             .logout { logout ->
                 logout
                     .logoutRequestMatcher(AntPathRequestMatcher("/monstersweb/logout"))
-                    .logoutSuccessUrl("/")
+                    .logoutSuccessUrl("/monstersweb/login")
                     .invalidateHttpSession(true)
                     .deleteCookies("JSESSIONID")
                     .permitAll()
