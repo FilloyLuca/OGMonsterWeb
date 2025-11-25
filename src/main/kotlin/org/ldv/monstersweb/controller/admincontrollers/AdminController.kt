@@ -18,18 +18,23 @@ class AdminController(private val monsterKubeDAO: MonsterKubeDAO, private val es
         return "pagesAdmin/dashboard"
     }
 
+    @GetMapping("/compteAdmin")
+    fun compte(): String {
+        return "pagesAdmin/compteAdmin"
+    }
+
     @GetMapping("/indexEspeceMonstre")
-    fun users(): String {
+    fun indexMonstre(): String {
         return "pagesAdmin/especemonstres/indexEspeceMonstre"
     }
 
     @GetMapping("/indexZone")
-    fun users2(): String {
+    fun indexZone(): String {
         return "pagesAdmin/zones/indexZone"
     }
 
     @GetMapping("/indexMonsterKube")
-    fun users3(): String {
+    fun indexMonsterKube(): String {
         return "pagesAdmin/monsterkube/indexMonsterKube"
     }
 
