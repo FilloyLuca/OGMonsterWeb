@@ -128,9 +128,20 @@
     </div>
 </div>
 
-<div th:fragment="InfoProfil" >
-    <div class="trainer-card ">
-<!--        <div class="col-8 col-lg-6 mx-auto p-4 mt-5 bg-white rounded shadow">-->
+<!-- Affichage du profil -->
+<div th:fragment="InfoProfil">
+
+    <!-- Bouton logout à droite -->
+    <div class="container my-4">
+        <div class="d-flex justify-content-end mb-3">
+            <a th:href="@{/monstersweb/logout}" class="btn btn-danger">
+                Se déconnecter
+            </a>
+        </div>
+    </div>
+
+    <!-- Le reste de ta carte -->
+    <div class="trainer-card">
         <div class="header-trainer-card">
             <span class="icon">⚪</span>
             <span class="title">CARTE DRESSEUR</span>
@@ -139,24 +150,24 @@
 
         <div class="content">
             <div class="info">
-<!--                <p><span>Nº ID</span> ${Client.nom} </p>-->
-                <p><span>Nº ID</span> <span th:text="${Client?.id}"></span></p>
-                <p><span>NOM</span> </p>
-                <p><span>PRENOM</span>  </p>
-                <p><span>EMAIL</span> </p>
-                <p><span>ROLE</span> </p>
-
-<!--                <p class="small"><span>DURÉE DE JEU</span> 145:43</p>-->
-<!--                <p class="small"><span>DÉBUT DE L’AVENTURE</span> 08 juil. 2016</p>-->
+                <p><span>Nº ID</span> <span th:text="${Client.id}"></span></p>
+                <p><span>NOM</span> <span th:text="${authentication.nom}"></span></p>
+                <p><span>PRENOM</span></p>
+                <p><span>EMAIL</span></p>
+                <p><span>ROLE</span></p>
                 <p class="small"><span>DATE</span>LocalDate</p>
             </div>
 
             <div class="sprite-box">
-                <img src="trainer.png" alt="Trainer Sprite">
+                <img src="/img/trainer.png" alt="Trainer Sprite">
             </div>
         </div>
     </div>
+
 </div>
+
+
+
 
 <!-- Footer -->
 <footer th:fragment="footer" class="container-fluid bg-dark text-white text-center py-3 mt-4 footer">
