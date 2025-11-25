@@ -1,9 +1,9 @@
 package org.ldv.monstersweb.controller
 import ch.qos.logback.core.net.server.Client
 import org.ldv.monstersweb.controller.clientcontrollers.ClientController
+import org.ldv.monstersweb.model.dao.UtilisateurDAO
 import org.ldv.monstersweb.model.entity.Administrateur
 import org.ldv.monstersweb.service.DataInitializer
-import org.ldv.monstersweb.service.
 import org.springframework.security.core.Authentication
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -11,12 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
 
 
-
-
-
-
 @Controller
-class MainController(private val dataInitializer: DataInitializer) {
+class MainController(private val dataInitializer: DataInitializer, private val utilisateurDAO: UtilisateurDAO) {
 
     /**
      * Page d'accueil accessible à tous (GET /)
@@ -91,7 +87,7 @@ class MainController(private val dataInitializer: DataInitializer) {
         val email = authentication.name
 
         // Vérifier si le client existe
-        val client = utilisateurService.findByEmail(email)
+        val client = utilisateurDAO.findByEmail(email)
             ?: return "redirect:/monstersweb/login?error=true" // Redirection en cas d'erreur (email introuvable)
 
         model.addAttribute("Client", client)
